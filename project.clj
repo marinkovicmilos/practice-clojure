@@ -5,7 +5,8 @@
             :url "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.8.0"]
   				 [ring "1.6.0"]
-  				 [compojure "1.6.0"]]
+  				 [compojure "1.6.0"]
+           [hiccup "1.0.5"]]
   :main clojure-practice.core
   :profiles {:dev 
             	{:main clojure-practice.core/-wrap-reload-main}})

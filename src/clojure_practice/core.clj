@@ -2,7 +2,10 @@
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
             [compojure.core :refer [defroutes GET]]
-            [compojure.route :refer [not-found]]))
+            [compojure.route :refer [not-found]]
+            [views.home :as home]
+            [views.create :as create]
+            [views.customerview :as customerview]))
 
 (defn hello
   [request]
@@ -35,7 +38,10 @@
 
 
 (defroutes app
-  (GET "/" [] hello)
+  ;;(GET "/" [] hello)
+  (GET "/" [] (home/home-page))
+  (GET "/add-customer" [] (create/add-customer-page))
+  (GET "/customers" [] (customerview/all-customers-page))
   (GET "/about" [] about)
   (GET "/greeting/:name" [] greeting)
   (GET "/greeting/:firstName/:lastName" [] greeting-full-name)
